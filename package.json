@@ -1,0 +1,13 @@
+{
+  "name": "claude",
+  "version": "1.0.0",
+  "main": "admin.js",
+  "scripts": {
+    "start": "python3 -m http.server 8000",
+    "dev": "python3 -m http.server 8000",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

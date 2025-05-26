@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dmitrij - Portfolio Manager</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">Dmitrij</a>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#donation" class="nav-link donation-nav" style="display: none;">Support SPILNO</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Professional Portfolio Management</h1>
+                    <p class="hero-subtitle">Experienced portfolio manager specializing in strategic planning, risk management, and driving exceptional results for clients and organizations.</p>
+                    <div class="hero-buttons">
+                        <a href="#contact" class="btn btn-primary">Schedule Consultation</a>
+                        <a href="#services" class="btn btn-secondary">View Services</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div id="hero-image-container" class="hero-placeholder">
+                        <img id="portfolio-image" src="" alt="Dmitrij" style="display: none;">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="services">
+            <div class="container">
+                <h2 class="section-title">Core Specializations</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">👥</div>
+                        <h3>People Management</h3>
+                        <p>Leading high-performing teams with focus on collaboration, growth, and achieving strategic objectives.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">📋</div>
+                        <h3>Effective Project Planning</h3>
+                        <p>Comprehensive project strategy and execution, ensuring timely delivery and optimal resource allocation.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🛡️</div>
+                        <h3>Crisis Management</h3>
+                        <p>Swift decision-making and strategic response during challenging situations to minimize impact and maintain stability.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">⚖️</div>
+                        <h3>Risk Minimization</h3>
+                        <p>Proactive risk assessment and mitigation strategies to protect investments and ensure sustainable growth.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">⚡</div>
+                        <h3>Efficiency Improvement</h3>
+                        <p>Streamlining processes and optimizing workflows to maximize productivity and reduce operational costs.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">💼</div>
+                        <h3>Attracting Financial Capital</h3>
+                        <p>Developing compelling investment propositions and building relationships with key financial stakeholders.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="experience">
+            <div class="container">
+                <h2 class="section-title">Professional Experience</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3>Senior Portfolio Manager</h3>
+                            <p class="timeline-period">2020 - Present</p>
+                            <ul>
+                                <li>Managed investment portfolios worth $50M+ with consistent above-market returns</li>
+                                <li>Led cross-functional teams of 15+ professionals across multiple projects</li>
+                                <li>Implemented risk management frameworks reducing portfolio volatility by 25%</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3>Project Manager</h3>
+                            <p class="timeline-period">2017 - 2020</p>
+                            <ul>
+                                <li>Successfully delivered 20+ complex projects on time and under budget</li>
+                                <li>Developed crisis management protocols adopted company-wide</li>
+                                <li>Improved operational efficiency by 30% through process optimization</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3>Financial Analyst</h3>
+                            <p class="timeline-period">2014 - 2017</p>
+                            <ul>
+                                <li>Conducted comprehensive market analysis and investment research</li>
+                                <li>Supported capital raising efforts totaling $100M+</li>
+                                <li>Built financial models used for strategic decision-making</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials">
+            <div class="container">
+                <h2 class="section-title">Client Testimonials</h2>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <p>"Dmitrij's strategic approach to portfolio management has consistently delivered exceptional results. His ability to navigate complex market conditions while maintaining focus on long-term growth is truly impressive."</p>
+                        <div class="testimonial-author">
+                            <strong>Sarah Johnson</strong>
+                            <span>CEO, TechVentures Inc.</span>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <p>"Working with Dmitrij during our company's restructuring was a game-changer. His crisis management skills and leadership helped us emerge stronger and more efficient than ever."</p>
+                        <div class="testimonial-author">
+                            <strong>Michael Chen</strong>
+                            <span>CFO, Global Solutions Ltd.</span>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <p>"The risk management frameworks Dmitrij implemented have significantly improved our portfolio stability. His expertise in attracting financial capital was instrumental in our recent funding round."</p>
+                        <div class="testimonial-author">
+                            <strong>Emma Rodriguez</strong>
+                            <span>Investment Director, Capital Partners</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="donation" class="donation" style="display: none;">
+            <div class="container">
+                <div class="donation-content">
+                    <div class="donation-info">
+                        <h2 id="donation-title">Support SPILNO</h2>
+                        <p id="donation-message">Donations are appreciated and help support the development of my new startup — SPILNO. Thank you for your support!</p>
+                        <div class="donation-details">
+                            <div class="bank-account">
+                                <span class="account-label">Bank Account:</span>
+                                <span id="donation-account" class="account-number">5167 8032 6155 4666</span>
+                                <button class="copy-btn" onclick="copyAccountNumber()">Copy</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="donation-visual">
+                        <div class="donation-card">
+                            <div class="card-header">
+                                <h3>SPILNO</h3>
+                                <span class="startup-label">Startup Project</span>
+                            </div>
+                            <div class="card-content">
+                                <p>Your support helps build innovative solutions for the future.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="container">
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h2>Ready to Discuss Your Portfolio?</h2>
+                        <p>Let's explore how my expertise can help you achieve your financial objectives and drive sustainable growth.</p>
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <span class="contact-icon">📧</span>
+                                <span>dmitrij@portfolio-solutions.com</span>
+                            </div>
+                            <div class="contact-item">
+                                <span class="contact-icon">📱</span>
+                                <span>+1 (555) 123-4567</span>
+                            </div>
+                            <div class="contact-item">
+                                <span class="contact-icon">📍</span>
+                                <span>New York, NY</span>
+                            </div>
+                        </div>
+                    </div>
+                    <form class="contact-form">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="company" name="company" placeholder="Company/Organization">
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" placeholder="Tell me about your portfolio management needs..." rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">Schedule Consultation</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2024 Dmitrij. Professional Portfolio Management Services.</p>
+                <div class="footer-links">
+                    <a href="#privacy">Privacy Policy</a>
+                    <a href="#terms">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Debug Panel (hidden by default) -->
+    <div id="debug-panel" style="position: fixed; top: 10px; left: 10px; background: rgba(0,0,0,0.8); color: white; padding: 10px; border-radius: 5px; font-size: 12px; z-index: 9999; display: none;">
+        <button onclick="loadPortfolioData(); console.log('Manual refresh triggered')" style="background: #1e40af; color: white; border: none; padding: 5px 10px; border-radius: 3px; margin-bottom: 5px;">Refresh Data</button>
+        <br>
+        <button onclick="document.getElementById('debug-panel').style.display='none'" style="background: #ef4444; color: white; border: none; padding: 5px 10px; border-radius: 3px;">Hide</button>
+    </div>
+
+    <!-- Show debug on Ctrl+D -->
+    <script>
+        document.addEventListener('keydown', (e) => {
+            if (e.ctrlKey && e.key === 'd') {
+                e.preventDefault();
+                document.getElementById('debug-panel').style.display = 'block';
+            }
+        });
+    </script>
+
+    <script src="script.js"></script>
+</body>
+</html>

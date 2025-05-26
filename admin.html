@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Portfolio Manager</title>
+    <link rel="stylesheet" href="admin-styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Cropper.js CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.1/cropper.min.css" integrity="sha512-hvNR0F/e2J7zPPfLC9auFe3/SE0yG4aJCOd/qxew74NN7eyiSKjr7xJJMu1Jy2wf7FXITpWS1E/RY8yzuXN7VA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div id="login-container" class="login-container">
+        <div class="login-card">
+            <h1>Admin Panel</h1>
+            <p>Enter the admin password to manage your portfolio</p>
+            <form id="login-form">
+                <div class="form-group">
+                    <input type="password" id="admin-password" placeholder="Admin Password" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+            <div id="login-error" class="error-message" style="display: none;"></div>
+        </div>
+    </div>
+
+    <div id="admin-panel" class="admin-panel" style="display: none;">
+        <header class="admin-header">
+            <h1>Portfolio Admin Panel</h1>
+            <div class="admin-actions">
+                <div class="storage-info">
+                    <span id="storage-usage">Storage: 0%</span>
+                </div>
+                <button id="preview-btn" class="btn btn-secondary">Preview Site</button>
+                <button id="clear-storage-btn" class="btn btn-outline">Clear Storage</button>
+                <button id="save-all-btn" class="btn btn-primary">Save All Changes</button>
+                <button id="logout-btn" class="btn btn-outline">Logout</button>
+            </div>
+        </header>
+
+        <div class="admin-content">
+            <div class="admin-tabs">
+                <button class="tab-btn active" data-tab="general">General Info</button>
+                <button class="tab-btn" data-tab="services">Specializations</button>
+                <button class="tab-btn" data-tab="experience">Experience</button>
+                <button class="tab-btn" data-tab="testimonials">Testimonials</button>
+                <button class="tab-btn" data-tab="donation">Donation</button>
+                <button class="tab-btn" data-tab="contact">Contact</button>
+            </div>
+
+            <div class="tab-content">
+                <!-- General Info Tab -->
+                <div id="general-tab" class="tab-panel active">
+                    <h2>General Information</h2>
+                    
+                    <div class="form-section">
+                        <h3>Portfolio Image</h3>
+                        <div class="image-upload-section">
+                            <div class="current-image">
+                                <img id="current-portfolio-image" src="" alt="Portfolio Image" style="display: none;">
+                                <div id="image-placeholder" class="image-placeholder">
+                                    <span>No image uploaded</span>
+                                </div>
+                            </div>
+                            <div class="image-controls">
+                                <input type="file" id="portfolio-image-upload" accept="image/*" style="display: none;">
+                                <button type="button" class="btn btn-secondary" onclick="document.getElementById('portfolio-image-upload').click()">
+                                    📁 Upload New Image
+                                </button>
+                                <button type="button" id="crop-image-btn" class="btn btn-primary" style="display: none;">
+                                    ✂️ Crop Image
+                                </button>
+                                <button type="button" id="remove-image-btn" class="btn btn-outline">🗑️ Remove Image</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Hero Section</h3>
+                        <div class="form-group">
+                            <label for="hero-title">Main Title</label>
+                            <input type="text" id="hero-title" placeholder="Professional Portfolio Management">
+                        </div>
+                        <div class="form-group">
+                            <label for="hero-subtitle">Subtitle</label>
+                            <textarea id="hero-subtitle" rows="3" placeholder="Experienced portfolio manager specializing in..."></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Biography</h3>
+                        <div class="form-group">
+                            <label for="biography">About You</label>
+                            <textarea id="biography" rows="6" placeholder="Write your professional biography..."></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Services Tab -->
+                <div id="services-tab" class="tab-panel">
+                    <h2>Specializations</h2>
+                    <div id="services-list">
+                        <!-- Services will be dynamically populated -->
+                    </div>
+                    <button id="add-service-btn" class="btn btn-secondary">Add New Specialization</button>
+                </div>
+
+                <!-- Experience Tab -->
+                <div id="experience-tab" class="tab-panel">
+                    <h2>Professional Experience</h2>
+                    <div id="experience-list">
+                        <!-- Experience items will be dynamically populated -->
+                    </div>
+                    <button id="add-experience-btn" class="btn btn-secondary">Add Experience</button>
+                </div>
+
+                <!-- Testimonials Tab -->
+                <div id="testimonials-tab" class="tab-panel">
+                    <h2>Client Testimonials</h2>
+                    <div id="testimonials-list">
+                        <!-- Testimonials will be dynamically populated -->
+                    </div>
+                    <button id="add-testimonial-btn" class="btn btn-secondary">Add Testimonial</button>
+                </div>
+
+                <!-- Donation Tab -->
+                <div id="donation-tab" class="tab-panel">
+                    <h2>SPILNO Donation Section</h2>
+                    <div class="form-section">
+                        <div class="form-group">
+                            <label for="donation-visible">
+                                <input type="checkbox" id="donation-visible"> Show donation section on website
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label for="donation-title">Section Title</label>
+                            <input type="text" id="donation-title" placeholder="Support SPILNO">
+                        </div>
+                        <div class="form-group">
+                            <label for="donation-message">Message</label>
+                            <textarea id="donation-message" rows="3" placeholder="Donations are appreciated and help support..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="donation-account">Bank Account Number</label>
+                            <input type="text" id="donation-account" placeholder="5167 8032 6155 4666">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Tab -->
+                <div id="contact-tab" class="tab-panel">
+                    <h2>Contact Information</h2>
+                    <div class="form-section">
+                        <div class="form-group">
+                            <label for="contact-email">Email</label>
+                            <input type="email" id="contact-email" placeholder="dmitrij@portfolio-solutions.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-phone">Phone</label>
+                            <input type="text" id="contact-phone" placeholder="+1 (555) 123-4567">
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-location">Location</label>
+                            <input type="text" id="contact-location" placeholder="New York, NY">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="save-status" id="save-status" style="display: none;">
+            <span class="status-text">Changes saved successfully!</span>
+        </div>
+    </div>
+
+    <!-- Service Template -->
+    <template id="service-template">
+        <div class="service-item">
+            <div class="form-group">
+                <label>Icon (emoji)</label>
+                <input type="text" class="service-icon" placeholder="👥">
+            </div>
+            <div class="form-group">
+                <label>Title</label>
+                <input type="text" class="service-title" placeholder="People Management">
+            </div>
+            <div class="form-group">
+                <label>Description</label>
+                <textarea class="service-description" rows="3" placeholder="Description of this specialization..."></textarea>
+            </div>
+            <button type="button" class="btn btn-danger remove-service-btn">Remove</button>
+        </div>
+    </template>
+
+    <!-- Experience Template -->
+    <template id="experience-template">
+        <div class="experience-item">
+            <div class="form-group">
+                <label>Job Title</label>
+                <input type="text" class="experience-title" placeholder="Senior Portfolio Manager">
+            </div>
+            <div class="form-group">
+                <label>Period</label>
+                <input type="text" class="experience-period" placeholder="2020 - Present">
+            </div>
+            <div class="form-group">
+                <label>Achievements (one per line)</label>
+                <textarea class="experience-achievements" rows="4" placeholder="Achievement 1&#10;Achievement 2&#10;Achievement 3"></textarea>
+            </div>
+            <button type="button" class="btn btn-danger remove-experience-btn">Remove</button>
+        </div>
+    </template>
+
+    <!-- Testimonial Template -->
+    <template id="testimonial-template">
+        <div class="testimonial-item">
+            <div class="form-group">
+                <label>Testimonial Text</label>
+                <textarea class="testimonial-text" rows="4" placeholder="Client testimonial..."></textarea>
+            </div>
+            <div class="form-group">
+                <label>Author Name</label>
+                <input type="text" class="testimonial-author" placeholder="Sarah Johnson">
+            </div>
+            <div class="form-group">
+                <label>Author Title</label>
+                <input type="text" class="testimonial-position" placeholder="CEO, TechVentures Inc.">
+            </div>
+            <button type="button" class="btn btn-danger remove-testimonial-btn">Remove</button>
+        </div>
+    </template>
+
+    <!-- Image Cropping Modal -->
+    <div id="crop-modal" class="crop-modal" style="display: none;">
+        <div class="crop-modal-overlay"></div>
+        <div class="crop-modal-content">
+            <div class="crop-modal-header">
+                <h3>Crop Your Image</h3>
+                <button class="crop-close-btn" type="button">&times;</button>
+            </div>
+            
+            <div class="crop-container">
+                <div class="crop-image-container">
+                    <img id="crop-image" src="" alt="Image to crop">
+                </div>
+                
+                <div class="crop-controls">
+                    <div class="crop-control-group">
+                        <h4>Zoom & Position</h4>
+                        <div class="crop-buttons">
+                            <button type="button" class="btn btn-secondary" id="zoom-in-btn">🔍+ Zoom In</button>
+                            <button type="button" class="btn btn-secondary" id="zoom-out-btn">🔍- Zoom Out</button>
+                            <button type="button" class="btn btn-secondary" id="reset-crop-btn">↻ Reset</button>
+                        </div>
+                    </div>
+                    
+                    <div class="crop-control-group">
+                        <h4>Crop Size</h4>
+                        <div class="aspect-ratio-buttons">
+                            <button type="button" class="btn btn-outline aspect-btn" data-aspect="1">1:1 Square</button>
+                            <button type="button" class="btn btn-outline aspect-btn" data-aspect="1.5">3:2 Landscape</button>
+                            <button type="button" class="btn btn-outline aspect-btn" data-aspect="0.75">3:4 Portrait</button>
+                            <button type="button" class="btn btn-outline aspect-btn" data-aspect="free">Free</button>
+                        </div>
+                    </div>
+                    
+                    <div class="crop-control-group">
+                        <h4>Actions</h4>
+                        <div class="crop-actions">
+                            <button type="button" class="btn btn-outline" id="cancel-crop-btn">Cancel</button>
+                            <button type="button" class="btn btn-primary" id="apply-crop-btn">Apply Crop</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="crop-info">
+                <div class="crop-dimensions">
+                    <span id="crop-dimensions">Image dimensions will appear here</span>
+                </div>
+                <div class="crop-help">
+                    <small>
+                        <strong>💡 Tips:</strong> 
+                        Drag to move • Corners to resize • Mouse wheel to zoom • 
+                        <strong>Shortcuts:</strong> +/- (zoom) • R (reset) • Enter (apply) • Esc (cancel)
+                    </small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cropper.js JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.1/cropper.min.js" integrity="sha512-9KkIqdfN7ipEW6B6k+Aq20PV31bjODg4AA52W+tYtAE0jE0kMx49bjJ3FgvS56wzmyfMUHbQ4Km2b7l9+Y/+Eg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="admin.js"></script>
+</body>
+</html>
